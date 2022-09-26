@@ -1,0 +1,59 @@
+<div class="container pt-3">
+    <form [formGroup]="empForm">
+        <mat-card class="card">New Employee Registration
+            <div class="form-row">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>name</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>address</mat-label>
+                        <input matInput formControlName="address">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>email</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>mobile</mat-label>
+                        <input matInput formControlName="mobile">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select the User Type</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option *ngFor="let type of userTypes" [value]="type.tid">
+                                {{type.division}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select the branch</mat-label>
+                        <mat-select formControlName="branch">
+                            <mat-option *ngFor="let branch of branches" [value]="branch.bid">
+                                {{branch.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select the new status</mat-label>
+                        <mat-select [(value)]="selected" formControlName="status">
+                            <mat-option *ngFor="let state of userStat" [value]="state">
+                                {{state}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <button mat-raised-button color="primary" (click)="saveEmployee()">Save</button>
+            </div>
+        </mat-card>
+    </form>
+</div>

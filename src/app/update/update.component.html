@@ -1,0 +1,58 @@
+<div class="container pt-3">
+    <form [formGroup]="empForm">
+    <mat-card>Update Employee
+        <div class="form-row">
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>address</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>mobile</mat-label>
+                    <input matInput formControlName="mobile">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>Select the User Type</mat-label>
+                    <mat-select formControlName="type1">
+                        <mat-option *ngFor="let type of userTypes" [value]="type.tid">
+                            {{type.division}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select the branch</mat-label>
+                    <mat-select formControlName="branch1">
+                        <mat-option *ngFor="let branch of branches" [value]="branch.bid">
+                            {{branch.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p>Current Status: {{currentStatus}}</p>
+
+                <!--Adding status combo box-->
+                <mat-form-field appearance="fill">
+                    <mat-label>Select the new status</mat-label>
+                    <mat-select [(value)]="currentStatus" formControlName="status1">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-row">
+            <button mat-raised-button color="primary" (click)="updateEmployee()">Update</button>
+        </div>
+    </mat-card>
+    </form>
+</div>

@@ -1,0 +1,132 @@
+<!-- <div class="container pt-3">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+      
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+       
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div> -->
+
+
+<!-- <table>
+    <tr>
+        <th>eid</th>
+        <th>name</th>
+        <th>address</th>
+        <th>email</th>
+        <th>mobile</th>
+        <th>type</th>
+        <th>branch</th>
+        <th>status</th>
+    </tr>
+    <tr *ngFor="let emp of employee">
+        <td>{{emp.eid}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.mobile}}</td>
+        <td>{{emp.type}}</td>
+        <td>{{emp.branch}}</td>
+        <td>{{emp.status}}</td>
+    </tr>
+</table> -->
+
+<div class="container pt-3">
+    <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Type the search" #input>
+    </mat-form-field>
+</div>
+<div class="container pt-3">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+        <ng-container matColumnDef="eid">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.eid}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.address}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="mobile">
+            <th mat-header-cell *matHeaderCellDef> Mobile </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.mobile}} </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="branch">
+            <th mat-header-cell *matHeaderCellDef> Branch </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.branch}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef class=""> Status </th>
+            <td mat-cell *matCellDef="let emp"> {{emp.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let emp"> 
+                <mat-menu #menu="matMenu">
+                    <!--Here we pass the emp[data tuple from the data source] to the doUpdate method in .ts file-->
+                    <button mat-menu-item (click)="doUpdate(emp)">
+                        <mat-icon>update</mat-icon>
+                        <span>Update</span>
+                    </button>
+                    <button mat-menu-item disabled>
+                        <mat-icon>voicemail</mat-icon>
+                        <span>Check voice mail</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>save</mat-icon>
+                        <span>Save</span>
+                    </button>
+                </mat-menu>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[7, 14, 28]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

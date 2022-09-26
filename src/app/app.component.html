@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Allianz</span>
+    <span class="example-spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>View</button>
+      <button mat-menu-item routerLink="update">update</button>
+    </mat-menu>
+
+    <button routerLink="profile" class="mat-btn" mat-raised-button>Profile</button>
+    <button routerLink="table" class="mat-btn" mat-raised-button>Table</button>
+    <button routerLink="login" class="mat-btn" mat-raised-button>Login</button>
+    <button routerLink="save" class="mat-btn" mat-raised-button>Save</button>
+    <button routerLink="register" mat-raised-button>Register</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

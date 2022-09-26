@@ -1,0 +1,11 @@
+.mat-raised-button{
+    margin-top: 10px;
+    /**float: right;**/
+}
+
+mat-form-field{
+    display: block;
+    height: 20px;
+    padding-bottom: 70px;
+}
+    
